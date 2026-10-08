@@ -5,11 +5,9 @@ import pandas as pd
 import numpy as np
 from scipy.stats import ks_2samp
 from collections import OrderedDict
-from clone_competition_simulation.parameters import Parameters
+from clone_competition_simulation.parameters import Parameters, TimeParameters, PopulationParameters, LabelParameters, FitnessParameters
 import pyabc.visualization.credible as credible
 import sys
-
-DATA_FILE = "09-03-21 Final clonal counting dataset.xlsx"
 
 # Functions and fixed parameters for simulations
 GRID_SHAPE = (500, 500)
@@ -78,10 +76,19 @@ def run_sim(parameters, times, samplesPerTimepoint, target_data, return_takeover
         initial_grid, fitness_array, label_array = get_grid(fitness, induction, GRID_SHAPE, CELLS)
         if len(fitness_array) == 1:  # Induction rate too low. No mutants on grid.
             return ERROR_OBJECT
+        '''
         p = Parameters(algorithm='WF2D', initial_grid=initial_grid, times=times, fitness_array=fitness_array,
                        label_array=label_array,
                        print_warnings=False, division_rate=DIVISION_RATE,
                        cell_in_own_neighbourhood=True)
+        '''
+        p = Parameters(algorithm='WF2D', 
+               population=PopulationParameters(initial_grid=initial_grid,cell_in_own_neighbourhood=True),
+               times=TimeParameters(times=times, division_rate=DIVISION_RATE), 
+               labels=LabelParameters(initial_label_array=label_array),
+               fitness=FitnessParameters(initial_fitness_array=fitness_array),
+                       show_progress=False
+               )
         
         #clone_counts = np.zeros(len(times), dtype=int)
         takeover = np.zeros(len(times), dtype=int)
