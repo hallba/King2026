@@ -139,7 +139,7 @@ update_wrapper(f, run_sim)  # Adds the __name__ attribute that pyabc uses
 
 # Run the fitting using PyABC
 abc = ABCSMC(f, priors, distance, population_size=100, sampler=sampler)
-db_path = ("sqlite:///" + "TP53First"+'_pyabc.db')
+db_path = ("sqlite:///" + "Trp53First"+'_pyabc.db')
 
 r = abc.new(db_path, {'distance': 0})
 print("RunID:", r.id)
