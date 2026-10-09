@@ -14,11 +14,11 @@ Open `OE GRN v1.json` directly in the BioModelAnalyzer web tool.
 
 A Jupyter notebook (`Digital oesophagus.ipynb`) that simulates clonal competition in the oesophagus using a Wright-Fisher 2D spatial model. It models the fitness effects and epistatic interactions of Notch1 (het/hom), Notch2, and Trp53 mutations across a population of oesophageal cells.
 
-**Dependencies:** Requires the `clone-competition-simulation` package, available at [https://github.com/michaelhall28/clone-competition-simulation](https://github.com/michaelhall28/clone-competition-simulation), along with standard scientific Python packages (`numpy`, `matplotlib`, `pandas`, `scikit-learn`, `pingouin`).
+**Dependencies:** Requires the `clone-competition-simulation` package, available at [https://github.com/michaelhall28/clone-competition-simulation](https://github.com/michaelhall28/clone-competition-simulation), along with standard scientific Python packages (`numpy`, `matplotlib`, `pandas`, `scikit-learn`, `pingouin`). Environment.yml should include all dependencies to be installed by conda/pip.
 
-### ParameterInference
+### ParameterInference
 
-A Jupyter notebook and a python script used for inferring fitness parameters for Trp53 and Notch2.
+A Jupyter notebook and a python script used for inferring fitness parameters for Trp53 and Notch2. Also included, a Jupyter notebook for visualising inference results.
 
 ## License
 
